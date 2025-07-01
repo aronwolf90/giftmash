@@ -1,0 +1,28 @@
+<% content_for :title, "Vote" %>
+
+<div class="max-w-200 mx-auto">
+  <h1 class="font-bold text-4xl text-center">Vote</h1>
+
+  <div class="mt-4 text-center">
+    Click on the gift that you prefer<br />
+    or click on next
+  </div>
+
+  <div class="mt-4 text-center">
+    <%= link_to "Next", new_upvote_path, class: "hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" %>
+    <%= link_to "See result", root_path, class: "hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" %>
+  </div>
+  
+  <div class="grid gap-4 grid-cols-2 max-w-200 mt-4">
+    <% @gifts.each do |gift| %>
+      <%= button_to upvotes_path,
+        class: "block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 hover:cursor-pointer",
+        params: { id: gift.id } do %>
+        <div class="min-h-25">
+          <%= gift.name %> 
+        </div>
+        <%= image_tag gift.image_url, class: "h-60 mx-auto" %> 
+      <% end %>
+    <% end %>
+  </div>
+</div>

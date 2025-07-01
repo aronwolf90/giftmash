@@ -1,5 +1,6 @@
 class Gift < ApplicationRecord
   scope :ordered, -> { order(rating: :desc) }
+  scope :random, -> { order("RANDOM()") }
 
   def self.import_from_csv(path)
     transaction do
@@ -10,5 +11,9 @@ class Gift < ApplicationRecord
         )
       end
     end
+  end
+
+  def upvote
+    increment!(:rating)
   end
 end

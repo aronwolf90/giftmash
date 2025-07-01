@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :gifts, only: :index
+  resources :upvotes, only: %i[ new create ]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

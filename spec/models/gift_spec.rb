@@ -37,4 +37,14 @@ RSpec.describe Gift, type: :model do
       expect(described_class.ordered).to eq [ best_rated_gift, worst_rated_gift ]
     end
   end
+
+  describe "upvote" do
+    let!(:gift) { create(:gift, rating: 0) }
+
+    it "increments ratings counter" do
+      gift.upvote
+
+      expect(gift.rating).to eq 1
+    end
+  end
 end
