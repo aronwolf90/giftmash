@@ -22,7 +22,6 @@ RSpec.describe "/upvotes", type: :request do
 
     it "show flash message" do
       post upvotes_path, params: { id: gift.id }
-
       expect(flash[:notice]).to be_present    end
 
     it "increment rating by 1" do

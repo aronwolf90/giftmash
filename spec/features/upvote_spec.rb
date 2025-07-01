@@ -13,4 +13,3 @@ RSpec.feature "Upvote gift", type: :feature do
     expect(page).to have_content "Successfully voted for \"#{gift.name}\""
   end
 end
-
