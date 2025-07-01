@@ -7,3 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+csv_path = Rails.root.join("db", "gifts.csv")
+
+Gift.import_from_csv(csv_path)

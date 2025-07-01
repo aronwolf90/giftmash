@@ -1,0 +1,31 @@
+require 'rails_helper'
+
+RSpec.describe Gift, type: :model do
+  describe ".import_form_csv" do
+    let(:csv) do
+      file = Tempfile.new('csv')
+
+      file.write(
+        <<~EOS
+        name; image_url; url
+        Test name; http://example.com/image.png; http://example.com
+        EOS
+      )
+
+      file.close
+      file
+    end
+
+    after { csv.unlink }
+
+    it "imports gifts from csv" do
+      expect { described_class.import_from_csv(csv.path) }.to change(described_class, :count).by(1)
+
+      expect(Gift.last).to have_attributes(
+        name: "Test name",
+        image_url: "http://example.com/image.png",
+        url: "http://example.com"
+      )
+    end
+  end
+end
