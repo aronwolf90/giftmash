@@ -38,7 +38,7 @@ RSpec.describe Gift, type: :model do
     end
   end
 
-  describe "upvote" do
+  describe "#upvote" do
     let!(:gift) { create(:gift, rating: 0) }
 
     it "increments ratings counter" do
