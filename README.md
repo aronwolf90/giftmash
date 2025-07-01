@@ -23,6 +23,8 @@ You can see the deployed app here: https://giftmash.webcloudpower.com/
 * Use normal **image_url** instead active storage. In the real world I would have stored
   the image using active storage to avoid problems with data protection, but I am already
   a bit over the time, so I decided not to add it (not including the breaks I took
-  in between commits).
+  in between commits). The reason why using image_url is a data protection problem is, that
+  the host of the image could see the IP of the person who download the image (by visiting this
+  web application).
 * Use RSpec instead mintiest because you told me that you are using it.
 * Add some styling to make the it more intuitive to use.
