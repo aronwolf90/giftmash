@@ -28,4 +28,13 @@ RSpec.describe Gift, type: :model do
       )
     end
   end
+
+  describe ".ordered" do
+    let!(:worst_rated_gift) { create(:gift, rating: 0) }
+    let!(:best_rated_gift) { create(:gift, rating: 2) }
+
+    it "return gifts ordered by rating" do
+      expect(described_class.ordered).to eq [ best_rated_gift, worst_rated_gift ]
+    end
+  end
 end

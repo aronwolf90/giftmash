@@ -1,0 +1,17 @@
+<% content_for :title, "Gifts" %>
+
+<div class="w-full">
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Gifts</h1>
+  </div>
+
+  <div id="gifts" class="min-w-full divide-y divide-gray-200">
+    <% if @gifts.any? %>
+      <% @gifts.each do |gift| %>
+        <%= render gift %>
+      <% end %>
+    <% else %>
+      <p class="text-center my-10">No gifts found. Pleas run<span class="text-bold">bin/rails db:seed.</span></p>
+    <% end %>
+  </div>
+</div>

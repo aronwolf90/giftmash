@@ -1,4 +1,6 @@
 class Gift < ApplicationRecord
+  scope :ordered, -> { order(rating: :desc) }
+
   def self.import_from_csv(path)
     transaction do
       CSV.foreach(path, col_sep: ";", headers: true, strip: true) do |row|

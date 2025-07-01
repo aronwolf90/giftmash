@@ -1,0 +1,11 @@
+<div class="flex gap-4 py-2">
+  <div class="flex-none max-w-30">
+  <%= image_tag gift.image_url, class: "max-w-30 flex-none" %>
+  </div>
+  <div class="grow">
+    <%= link_to gift.name, gift.url, class: "text-blue-600 hover:underline", target: :_blank %>
+    <div>
+      <span class="font-bold">Rating:</span> <%= gift.rating %>
+    </div>
+  </div>
+</div>
